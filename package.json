@@ -1,0 +1,20 @@
+{
+  "name": "apollographql",
+  "version": "1.0.0",
+  "description": "Slides para la charla de Apollo, graphql y netlify para Facebook Developer circles CDMX.",
+  "main": "index.js",
+  "repository": "https://github.com/Jossdz/Apollo-GraphQL-Slides.git",
+  "author": "Jose Carlos Correa (Joss)",
+  "scripts": {
+    "dev": "mdx-deck ./src/deck.mdx",
+    "build": "mdx-deck build --no-html ./src/deck.mdx"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "mdx-deck": "^1.7.7",
+    "mdx-deck-code-surfer": "^0.5.1",
+    "prism-react-renderer": "^0.1.4",
+    "raw-loader": "^0.5.1",
+    "styled-components": "^3.4.10"
+  }
+}
