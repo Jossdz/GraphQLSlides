@@ -1,0 +1,1 @@
+npm install --save apollo-boost react-apollo

@@ -1,0 +1,8 @@
+query getAllUsers {
+  users {
+    name
+    posts {
+      name
+    }
+  }
+}

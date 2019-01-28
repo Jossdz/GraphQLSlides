@@ -3,14 +3,16 @@ import { CodeSurfer } from 'mdx-deck-code-surfer'
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 import { Horizontal } from 'mdx-deck/layouts'
 import { Image } from 'mdx-deck'
-import Colored from './components/Colored.js'
+import Colored from './components/Colored'
 import theme from './theme'
+import apolloCode from './theme/apolloCode'
+
 
 
 export { default as theme } from './theme'
 const {colors} = theme
 
-  # Apps cons Netlify, Apollo y Graphql
+  # Apps con Netlify, Apollo y Graphql
 
   <br/>
   <img src='https://www.netlify.com/img/press/logos/logomark.png' width='100px'/> &nbsp; 
@@ -50,4 +52,276 @@ export default Horizontal
 
 ---
 
-<Image src='https://i.postimg.cc/26vRFP1y/Rest_Stack_1.png' size='80%'/>
+<Image src='https://i.postimg.cc/nHSRnFzG/Rest_Stack_1_2x.jpg' size='80%'/>
+
+---
+
+
+  <CodeSurfer
+  title="Query"
+  code={require("!raw-loader!./Docs/my-snippet.graphql")}
+  lang="graphql"
+  showNumbers={false}
+  dark={false}
+  theme={apolloCode}
+  steps={[
+    { notes: "Así luce una query"},
+    { tokens: { 1: [0]}, notes: "palabra clave query"},
+    { tokens: { 1: [1]}, notes: "puede tener un nombre"},
+    { tokens: {2: [0]}, notes: "pedimos algo a un schema" },
+    { tokens: {3: [0], 4:[0]}, notes: "que contiene 2 atributos"},
+    { lines: [5], notes: "y atributos del schema siguiente" }
+  ]}
+/>
+
+---
+
+<Image src='https://i.postimg.cc/Z46vjvKM/graph-2x.jpg' size='80%'/>
+
+---
+
+  <CodeSurfer
+  title="Schema"
+  code={require("!raw-loader!./Docs/schema.graphql")}
+  lang="graphql"
+  showNumbers={false}
+  dark={false}
+  theme={apolloCode}
+  steps={[
+    { notes: "Así luce un schema" },
+    { notes: "Si, es tipado..."},
+    { tokens: { 1: [0, 1]}, notes: "Definimos un tipo con su nombre"},
+    { range: [2, 5], notes: "y sus atributos con cada tipo"},
+    { tokens: {2:[3], 3:[3]}, notes: "existen varios tipos primitivos de graphql"},
+    { tokens: {2:[4], 3:[4]}, notes: "y si un atributo es requerido basta con un \'!\'"}
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="Resolver"
+  code={require("!raw-loader!./Docs/resolver.js")}
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+  theme={apolloCode}
+  steps={[
+    { notes: "El esquema define la data..." },
+    { notes: "El query la pide la data..."},
+    { notes: "pero el resolver la devuelve al cliente"},
+    { tokens: { 2: [0, 1]}, notes: "definimos el query principal"},
+    { tokens: { 3: [0, 1], 6: [0,1]}, notes: "y 2 resolvers"},
+    { lines: [7], notes: "obtenemos la data de cualquier fuente"},
+    { lines: [8], notes: "y devolvemos lo que el cliente espera"}
+  ]}
+/>
+
+---
+
+
+<CodeSurfer
+  title="Query"
+  code={require("!raw-loader!./Docs/my-snippet.graphql")}
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+  theme={apolloCode}
+  steps={[
+    { notes: "Pedimos los datos que necesitamos" }
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="Respuesta"
+  code={require("!raw-loader!./Docs/response.js")}
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+  theme={apolloCode}
+  steps={[
+    { notes: "Obtenemos los datos que necesitamos" }
+  ]}
+/>
+
+---
+
+  <CodeSurfer
+  title="Mutaciones"
+  code={require("!raw-loader!./Docs/mutation.graphql")}
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+  theme={apolloCode}
+  steps={[
+    { notes: "En caso de querer cambiar la data..."},
+    { tokens: { 1: [0]}, notes: "usamos una mutación"},
+    { tokens: { 1: [1]}, notes: "debe tener un nombre"},
+    { tokens: {2: [1,3,4,5,6]}, notes: "ejecutamos una mutación definida con los datos necesarios" },
+    { range: [3,4], notes: "y datos de vuelta, despues de la mutación" }
+  ]}
+/>
+
+---
+
+### ¿ Entonces, cual es el problema ? 
+
+---
+
+<Image src='https://i.postimg.cc/dwVFWLF9/rest-2x.jpg' size='70%'/>
+
+---
+
+export default Horizontal
+
+<div>
+ <Colored color={colors.highlight}><h1>Rest</h1></Colored>
+    <p>Tamaño de payload</p>
+    <p>El server define la estructura</p>
+    <p>Envia de más</p>
+    <p>No está pensada para la UI</p>
+    <p>Espera por multiples recursos</p>
+    <p>Trabajo extra en el cliente</p>
+</div>
+
+<div>
+  <Colored color={colors.link}><h1>Graphql</h1></Colored>
+    <p>Payload definido por query</p>
+    <p>El cpente define la estructura </p>
+    <p>Solo la data necesaria</p>
+    <p>Pensada para UI</p>
+    <p>Relacion entre recursos</p>
+    <p>Trabajo justo en el cliente</p>
+</div>
+
+---
+
+# ¿Como y donde empezar?
+
+[Apollo](https://www.apollographql.com/)
+
+---
+
+export default Horizontal
+
+ <img src='https://cdn-images-1.medium.com/max/1600/1*BIR94Q8MDPonvvFtsnUYLg.png' width='250em'/>
+
+
+ <div>
+  <blockquote>"Apollo es una familia de tecnologías que puedes agregar incrementalmente a tu stack"</blockquote>
+  <h2>- <Colored color={colors.link}>Apollo</Colored></h2>
+  
+ </div>
+
+---
+
+<Image src='https://i.postimg.cc/dqYnQZ5M/Apollo-Stack-2x.jpg' size='70%'/>
+
+---
+
+<CodeSurfer
+  title= 'proyecto'
+  code={require("!raw-loader!./Docs/start.sh")}
+  lang="bash"
+  showNumbers={false}
+  dark={false}
+  theme={apolloCode}
+/>
+
+---
+
+<CodeSurfer
+  title= ''
+  code={require("!raw-loader!./Docs/step2.sh")}
+  lang="bash"
+  showNumbers={false}
+  dark={false}
+  theme={apolloCode}
+/>
+
+---
+
+<CodeSurfer
+  title= 'server'
+  code={require("!raw-loader!./Docs/server.js")}
+  lang="js"
+  showNumbers={false}
+  dark={false}
+  theme={apolloCode}
+  steps={[
+    { notes: "Server"},
+    {lines: [1], notes: "importamos apollo-server-lambda"},
+    { range: [3, 7], notes: "definimos nuestro schema" },
+    { range: [9, 15], notes: "definimos los resolvers" },
+    { range: [17, 20], notes: "y la instancia del graph server" }
+  ]}
+/>
+
+---
+<p>Graphql playground</p>
+<img src='https://i.postimg.cc/gmnnZsgV/Captura-de-pantalla-2018-10-11-a-la-s-18-37-13.png' width='70%'/>
+
+---
+
+<CodeSurfer
+  title= 'cliente'
+  code={require("!raw-loader!./Docs/client.sh")}
+  lang="bash"
+  showNumbers={false}
+  dark={false}
+  theme={apolloCode}
+/>
+
+---
+
+<CodeSurfer
+  title= 'componente'
+  code={require("!raw-loader!./Docs/lambdaC.js")}
+  lang="js"
+  showNumbers={false}
+  dark={false}
+  theme={apolloCode}
+  steps={[
+    { notes: "Client"},
+    { range: [1, 3], notes: "idefinimos cliente en base al graph server"},
+    { range: [6, 19], notes: "generamos un componente para consumir datos"},
+    { range: [7, 18], notes: "ocupamos el consumer con la config del cliente"},
+    { range: [8, 14], notes: "agregamos el query con la data que queremos"},
+    { range: [15, 16], notes: "por ultimo, generamos la ui usando la data devuelta"}
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title= 'ejecutar'
+  code={require("!raw-loader!./Docs/test.sh")}
+  lang="bash"
+  showNumbers={false}
+  dark={false}
+  theme={apolloCode}
+/>
+
+---
+
+<p>Resultado</p>
+<img src='https://i.postimg.cc/P5NyhMMJ/Captura-de-pantalla-2018-10-11-a-la-s-18-43-25.png' width='70%'/>
+
+---
+
+<Image src='https://i.postimg.cc/dqYnQZ5M/Apollo-Stack-2x.jpg' size='70%'/>
+
+---
+
+# ¿ Preguntas ?
+
+---
+
+<h1>Gracias ✨</h1>
+
+
+<p>https://dist-txbjgbyekc.now.sh/#0</p>
+<a href='https://twitter.com/JossDz' target="_blank"><img width='50px' src='https://seeklogo.com/images/T/twitter-2012-negative-logo-5C6C1F1521-seeklogo.com.png'/></a>  &nbsp; 
+<a href='https://www.facebook.com/CarlosCorreaDev' target="_blank"><img width='50px' src='https://www.facebook.com/images/fb_icon_325x325.png'/></a>
